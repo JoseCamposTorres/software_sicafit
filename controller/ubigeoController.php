@@ -62,8 +62,13 @@ switch ($_GET["op"]) {
                 echo json_encode(["status" => "success", "message" => "Distrito registrado correctamente."]);
             }
         } else {
-            $ubigeo->update_ubigeo($_POST["ubi_id"], $_POST["ubi_departament"], $_POST["ubi_province"], $_POST["ubi_district"], $_POST["usu_id"]);
-            echo json_encode(["status" => "success", "message" => "Distrito actualizado correctamente."]);
+            $resultado = $ubigeo->update_ubigeo($_POST["ubi_id"], $_POST["ubi_departament"], $_POST["ubi_province"], $_POST["ubi_district"], $_POST["usu_id"]);
+            
+            if ($resultado == "EXISTE") {
+                echo json_encode(["status" => "error", "message" => "El distrito ya está registrado en esta provincia y departamento."]);
+            } else {
+                echo json_encode(["status" => "success", "message" => "Distrito actualizado correctamente."]);
+            }
         }
         break;
 

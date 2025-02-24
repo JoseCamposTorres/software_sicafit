@@ -57,6 +57,18 @@ class Sede extends Connect
     {
         $conectar = parent::Connection();
         parent::set_names();
+
+        // Verificar si ya existe la sede 
+        $sql_check = "SELECT sede_id FROM tm_sedes WHERE sede_name = ?";
+        $stmt_check = $conectar->prepare($sql_check);
+        $stmt_check->bindValue(1, $sede_name);
+        $stmt_check->execute();
+        $resultado = $stmt_check->fetch();
+
+        if ($resultado) {
+            return "EXISTE"; // Indica que ya existe la sede
+        }
+
         $sql = "UPDATE tm_sedes set
                     sede_name = ?,
                     usu_id = ?,
@@ -69,7 +81,8 @@ class Sede extends Connect
         $sql->bindValue(2, $usu_id);
         $sql->bindValue(3, $sede_id);
         $sql->execute();
-        return  $resultado = $sql->fetchAll();
+        
+        return "OK";
     }
 
     /**TODO: Funcion para desactivar sede */

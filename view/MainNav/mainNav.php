@@ -10,13 +10,19 @@
         <li>
             <a href="../Ubigeo/">
                 <i class="fa fa-globe"></i>
-                <span class="lbl">Ubigeo</span>
+                <span class="lbl">Ubigeos</span>
             </a>
         </li>
         <li>
             <a href="../Sede/">
                 <i class="fa fa-building"></i>
-                <span class="lbl">Sede</span>
+                <span class="lbl">Sedes</span>
+            </a>
+        </li>
+        <li>
+            <a href="../Local/">
+                <i class="fa fa-map-marker"></i>
+                <span class="lbl">Locales</span>
             </a>
         </li>
     </ul>

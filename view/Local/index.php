@@ -20,10 +20,10 @@ if (isset($_SESSION["usu_id"])) {
                     <div class="tbl">
                         <div class="tbl-row">
                             <div class="tbl-cell">
-                                <h3>Ubigeos</h3>
+                                <h3>Locales</h3>
                                 <ol class="breadcrumb breadcrumb-simple">
                                     <li><a href="../Home/">Inicio</a></li>
-                                    <li class="active">Ubigeos</li>
+                                    <li class="active">Locales</li>
                                 </ol>
                             </div>
                         </div>
@@ -32,15 +32,15 @@ if (isset($_SESSION["usu_id"])) {
 
                
                 <div  class="box-typical box-typical-padding">
-                    <button type="button" id="btn_ubigeo_new" class="btn btn-inline btn-primary ladda-button" data-style="zoom-out"><i class="fa fa-plus-circle"></i> Ingresar Ubigeo</button>
+                    <button type="button" id="btn_local_new" class="btn btn-inline btn-primary ladda-button" data-style="zoom-out"><i class="fa fa-plus-circle"></i> Ingresar Local</button>
 
-                    <table id="ubigeo_data" class="table table-bordered table-vcenter js-dataTable-full">
+                    <table id="local_data" class="table table-bordered table-vcenter js-dataTable-full">
                         <thead>
                             <tr>
                                 <th style="width: 3%;">N°</th>
-                                <th style="width: 10%;">Departamento</th>
-                                <th style="width: 5%;">Provincia</th>
-                                <th style="width: 5%;">Distrito</th>
+                                <th style="width: 10%;">Local</th>
+                                <th style="width: 10%;">Sede</th>
+                                <th style="width: 10%;">Dirección</th>
                                 <th style="width: 5%;">Estado</th>
                                 <th style="width: 5%;"></th>
                                 <th style="width: 5%;"></th>

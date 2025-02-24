@@ -51,8 +51,13 @@ switch ($_GET["op"]) {
                 echo json_encode(["status" => "success", "message" => "Sede registrado correctamente."]);
             }
         } else {
-            $sede->update_sede($_POST["sede_id"], $_POST["sede_name"], $_POST["usu_id"]);
-            echo json_encode(["status" => "success", "message" => "Sede actualizado correctamente."]);
+            $resultado = $sede->update_sede($_POST["sede_id"], $_POST["sede_name"], $_POST["usu_id"]);
+            
+            if ($resultado == "EXISTE") {
+                echo json_encode(["status" => "error", "message" => "La sede ya está registrado"]);
+            } else {
+                echo json_encode(["status" => "success", "message" => "Sede actualizado correctamente."]);
+            }
         }
         break;
 

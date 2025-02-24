@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="../../public/css/separate/vendor/datatables-net.min.css">
 	<link rel="stylesheet" href="../../public/css/lib/ladda-button/ladda-themeless.min.css">
 	<script src="../../public/js/lib/swealertmain/sweetalert2@11.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<link rel="icon" href="../../public/icon/LogoIcon.png">
 
 </head>

@@ -62,6 +62,21 @@ class Ubigeo extends Connect
     {
         $conectar = parent::Connection();
         parent::set_names();
+
+        // Verificar si ya existe el distrito en la misma provincia y departamento
+        $sql_check = "SELECT ubi_id FROM tm_ubigeo WHERE ubi_departament = ? AND ubi_province = ? AND ubi_district = ?";
+        $stmt_check = $conectar->prepare($sql_check);
+        $stmt_check->bindValue(1, $ubi_departament);
+        $stmt_check->bindValue(2, $ubi_province);
+        $stmt_check->bindValue(3, $ubi_district);
+        $stmt_check->execute();
+        $resultado = $stmt_check->fetch();
+
+        if ($resultado) {
+            return "EXISTE"; // Indica que ya existe el distrito
+        }
+
+        // Si no existe, se inserta
         $sql = "UPDATE tm_ubigeo set
                     ubi_departament = ?,
                     ubi_province = ?,
@@ -78,7 +93,7 @@ class Ubigeo extends Connect
         $sql->bindValue(4, $usu_id);
         $sql->bindValue(5, $ubi_id);
         $sql->execute();
-        return  $resultado = $sql->fetchAll();
+        return "OK";
     }
 
     /**TODO: Funcion para desactivar Ubigeo */

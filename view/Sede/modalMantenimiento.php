@@ -13,7 +13,7 @@
                     <input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
                    
                     <div class="row">
-                        <!-- Departamento -->
+                        <!-- Sede -->
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-label semibold" for="sede_name">Sedes</label>
