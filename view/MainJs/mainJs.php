@@ -13,5 +13,5 @@
 <script src="../../public/js/lib/datatables-net/datatables.min.js"></script>
 
 <script src="../../public/js/lib/ladda-button/spin.min.js"></script>
-	<script src="../../public/js/lib/ladda-button/ladda.min.js"></script>
-	<script src="../../public/js/lib/ladda-button/ladda-button-init.js"></script>
+<script src="../../public/js/lib/ladda-button/ladda.min.js"></script>
+<script src="../../public/js/lib/ladda-button/ladda-button-init.js"></script>

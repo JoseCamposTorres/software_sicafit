@@ -13,5 +13,11 @@
                 <span class="lbl">Ubigeo</span>
             </a>
         </li>
+        <li>
+            <a href="../Sede/">
+                <i class="fa fa-building"></i>
+                <span class="lbl">Sede</span>
+            </a>
+        </li>
     </ul>
 </nav>

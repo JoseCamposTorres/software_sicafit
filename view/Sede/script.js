@@ -3,14 +3,14 @@ var tabla;
 
 /**Funcion para inicializar componentes */
 function init() {
-    $("#ubigeo_form").on("submit", function (e) {
+    $("#sede_form").on("submit", function (e) {
         saveAndEdit(e);
     });
 }
 
 /**Inicializar tablas modal */
 $(document).ready(function () {
-    tabla = $('#ubigeo_data').dataTable({
+    tabla = $('#sede_data').dataTable({
         "aProcessing": true,
         "aServerSide": true,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>" +
@@ -59,7 +59,7 @@ $(document).ready(function () {
         }
         ],
         "ajax": {
-            url: '../../controller/ubigeoController.php?op=listar',
+            url: '../../controller/sedeController.php?op=listar',
             type: "post",
             dataType: "json",
             error: function (e) {
@@ -100,18 +100,18 @@ $(document).ready(function () {
 });
 
 /**Abri modal */
-$(document).on("click", "#btn_ubigeo_new", function () {
-    $('#mdltitulo').html('Registrar Ubigeo');
+$(document).on("click", "#btn_sede_new", function () {
+    $('#mdltitulo').html('Registrar Sede');
     $('#btnAccion').html('Registrar');
     $('#modalmantenimiento').modal('show');
-    $('#ubi_id').val('');
-    $('#ubigeo_form')[0].reset();
+    $('#sede_id').val('');
+    $('#sede_form')[0].reset();
 });
 
 /**Funcion para añadir y editar Ubigeo */
 function saveAndEdit(e) {
     e.preventDefault();
-    var formData = new FormData($("#ubigeo_form")[0]);
+    var formData = new FormData($("#sede_form")[0]);
 
     Swal.fire({
         title: '¡Recordatorio!',
@@ -125,7 +125,7 @@ function saveAndEdit(e) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "../../controller/ubigeoController.php?op=saveAndEdit",
+                url: "../../controller/sedeController.php?op=saveAndEdit",
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -139,9 +139,9 @@ function saveAndEdit(e) {
                             text: datos.message,
                         });
                     } else {
-                        $('#ubigeo_form')[0].reset();
+                        $('#sede_form')[0].reset();
                         $('#modalmantenimiento').modal('hide');
-                        $('#ubigeo_data').DataTable().ajax.reload();
+                        $('#sede_data').DataTable().ajax.reload();
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
@@ -162,27 +162,25 @@ function saveAndEdit(e) {
 init();
 
 /**Funcion para editar Ubigeo */
-function edit(ubi_id) {
-    $('#mdltitulo').html('Editar Ubigeo');
+function edit(sede_id) {
+    $('#mdltitulo').html('Editar Sede');
     $('#btnAccion').html('Editar');
 
-    $.post("../../controller/ubigeoController.php?op=view", { ubi_id: ubi_id }, function (data) {
+    $.post("../../controller/sedeController.php?op=view", { sede_id: sede_id }, function (data) {
         data = JSON.parse(data);
-        $('#ubi_id').val(data.ubi_id);
-        $('#ubi_departament').val(data.ubi_departament);
-        $('#ubi_province').val(data.ubi_province);
-        $('#ubi_district').val(data.ubi_district);
+        $('#sede_id').val(data.sede_id);
+        $('#sede_name').val(data.sede_name);
     });
     $('#modalmantenimiento').modal('show');
-    $('#ubigeo_data').DataTable().ajax.reload();
+    $('#sede_data').DataTable().ajax.reload();
 
 }
 
 /**Funcion para desactivar Ubigeo */
-function desactive(ubi_id) {
+function desactive(sede_id) {
     Swal.fire({
         title: 'Desactivar',
-        text: "¿Está seguro de desactivar el ubigeo?",
+        text: "¿Está seguro de desactivar la sede?",
         icon: 'warning', 
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -190,10 +188,10 @@ function desactive(ubi_id) {
         confirmButtonText: 'Sí, desactivar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.post("../../controller/ubigeoController.php?op=desactive", { ubi_id: ubi_id }, function (data) {
+            $.post("../../controller/sedeController.php?op=desactive", { sede_id: sede_id }, function (data) {
                 let response = JSON.parse(data);
                 if (response.status === "success") {
-                    $('#ubigeo_data').DataTable().ajax.reload();
+                    $('#sede_data').DataTable().ajax.reload();
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
@@ -208,7 +206,7 @@ function desactive(ubi_id) {
                         toast: true,
                         position: 'top-end',
                         icon: 'error',
-                        title: 'Error al desactivar el ubigeo',
+                        title: 'Error al desactivar la sede',
                         showConfirmButton: false,
                         timer: 3000,
                         timerProgressBar: true
@@ -220,10 +218,10 @@ function desactive(ubi_id) {
 }
 
 /** Función para activar Ubigeo */
-function active(ubi_id) {
+function active(sede_id) {  
     Swal.fire({
         title: 'Activar',
-        text: "¿Está seguro de activar el ubigeo?",
+        text: "¿Está seguro de activar la sede?",
         icon: 'warning', 
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -231,10 +229,10 @@ function active(ubi_id) {
         confirmButtonText: 'Sí, activar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.post("../../controller/ubigeoController.php?op=active", { ubi_id: ubi_id }, function (data) {
+            $.post("../../controller/sedeController.php?op=active", { sede_id: sede_id }, function (data) {
                 let response = JSON.parse(data); 
                 if (response.status === "success") {
-                    $('#ubigeo_data').DataTable().ajax.reload();
+                    $('#sede_data').DataTable().ajax.reload();
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
@@ -249,7 +247,7 @@ function active(ubi_id) {
                         toast: true,
                         position: 'top-end',
                         icon: 'error',
-                        title: 'Error al activar el ubigeo',
+                        title: 'Error al activar la sede',
                         showConfirmButton: false,
                         timer: 3000,
                         timerProgressBar: true
