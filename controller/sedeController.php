@@ -10,9 +10,10 @@ switch ($_GET["op"]) {
     case 'listar':
         $datos = $sede->get_sede();
         $data = array();
+        $contador = 1;
         foreach ($datos as $row) {
             $sub_array = array();
-            $sub_array[] = $row["sede_id"];
+            $sub_array[] = $contador++;
             $sub_array[] = $row["sede_name"];
             if ($row["sede_status"] == "1") {
                 $sub_array[] = '<span class="label label-pill label-success">Activo</span>';
@@ -20,12 +21,13 @@ switch ($_GET["op"]) {
                 $sub_array[] = '<span class="label label-pill label-danger">Desactivado</span>';
             }
 
+            
             if ($row["sede_status"] == "1") {
-                $sub_array[] = '<button type="button" onClick="edit(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-inline btn-warning-outline"><i class="fa fa-edit"></i></button>';
-                $sub_array[] = '<button type="button" onClick="desactive(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-inline btn-danger-outline"><i class="fa fa-trash"></i></button>';
+                $sub_array[] = '<button type="button" onClick="edit(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-warning btn-icon"><i class="demo-psi-pen-5 icon-lg"></i></button>';
+                $sub_array[] = '<button type="button" onClick="desactive(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-danger btn-icon"><i class="demo-psi-recycling icon-lg"></i></button>';
             } else {
-                $sub_array[] = '<button type="button" onClick="edit(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-inline btn-warning-outline" disabled><i class="fa fa-edit"></i></button>';
-                $sub_array[] = '<button type="button" onClick="active(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-inline btn-danger-outline"><i class="fa fa-check"></i></button>';
+                $sub_array[] = '<button type="button" onClick="edit(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-warning btn-icon" disabled><i class="demo-psi-pen-5 icon-lg"></i></button>';
+                $sub_array[] = '<button type="button" onClick="active(' . $row["sede_id"] . ');" id="' . $row["sede_id"] . '" class="btn btn-success btn-icon"><i class="fa fa-check"></i></button>';
             }
 
             $data[] = $sub_array;

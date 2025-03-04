@@ -112,6 +112,7 @@ $(document).on("click", "#btn_ubigeo_new", function () {
 function saveAndEdit(e) {
     e.preventDefault();
     var formData = new FormData($("#ubigeo_form")[0]);
+    console.log(formData);
 
     Swal.fire({
         title: '¡Recordatorio!',

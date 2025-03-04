@@ -9,28 +9,39 @@ if (isset($_POST["send"]) && $_POST["send"] == "yes") {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>MPFN - SICAFIT</title>
-    <link rel="stylesheet" href="./public/css/separate/pages/login.min.css">
-    <link rel="stylesheet" href="./public/css/lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./public/css/main.css">
     <link rel="icon" href="./public/icon/LogoIcon.png">
-    <script src="./public/js/lib/swealertmain/sweetalert2@11.js"></script>
+    <script src="./public/js/swealertmain/sweetalert2@11.js"></script>
+    <link href='./public/estilos_fonts.css' rel='stylesheet' type='text/css'>
+    <link href="./public/css\bootstrap.min.css" rel="stylesheet">
+    <link href="./public/css\nifty.min.css" rel="stylesheet">
+    <link href="./public/css\demo\nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="./public/plugins\pace\pace.min.css" rel="stylesheet">
+    <script src="./public/plugins\pace\pace.min.js"></script>
+    <link href="./public/css\demo\nifty-demo.min.css" rel="stylesheet">
+    <script src="./public/js/swealertmain/sweetalert2@11.js"></script>
+
 </head>
 
 <body>
-    <div class="page-center">
-        <div class="page-center-in">
-            <div class="container-fluid">
-                <form class="sign-box" method="post" id="login_form">
-                <div class="text-center">
-                        <img src="./public/icon/icon.jpeg" alt="Logo" >
+    <div id="container" class="cls-container">
+        <div id="bg-overlay"></div>
+
+        <div class="cls-content">
+            <div class="cls-content-sm panel">
+                <div class="panel-body">
+                    <div class="mar-ver pad-btm">
+                        <img src="./public/icon/ico.png" alt="Logo" width="250px">
+                        <h1 class="h3">SICAFIT</h1>
+                        <p class="text-center">Sistema de Casos Fiscales de Turno</p>
                     </div>
-                    <br>
                     <?php
                     if (isset($_GET["m"])) {
                         switch ($_GET["m"]) {
@@ -53,54 +64,28 @@ if (isset($_POST["send"]) && $_POST["send"] == "yes") {
                         }
                     }
                     ?>
-
-                    <h2 class="text-center"><b>SICAFIT</b></h2>
-                    <p class="text-center">Sistema de Casos Fiscales de Turno</p>
-                    <div class="form-group">
-                        <input type="text" name="usu_dni" id="usu_dni" class="form-control" placeholder="DNI" autocomplete="off" />
-                    </div>
-                    <div class="form-group">
-                        <input id="hide-show-password" name="usu_password" type="password" class="form-control" placeholder="Contraseña" autocomplete="current-password"/>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox float-left">
-                            <input type="checkbox" id="signed-in" />
+                    <form class="sign-box" method="post" id="login_form">
+                        <div class="form-group">
+                            <input type="text" name="usu_dni" id="usu_dni" class="form-control" placeholder="DNI" autocomplete="off" />
+                        </div>
+                        <div class="form-group">
+                            <input id="hide-show-password" name="usu_password" type="password" class="form-control" placeholder="Contraseña" autocomplete="current-password" />
+                        </div>
+                        <div class="checkbox pad-btm text-left">
+                            <input id="signed-in" class="magic-checkbox" type="checkbox">
                             <label for="signed-in">Recordar Contraseña</label>
                         </div>
-
-                    </div>
-                    <input type="hidden" name="send" value="yes">
-                    <button type="submit" id="btnIngresar" class="btn btn-rounded btn-success">Ingresar</button>
-
-                </form>
+                        <input type="hidden" name="send" value="yes">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="btnIngresar">Ingresar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
+    <script src="./public/js\jquery.min.js"></script>
+    <script src="./public/js\bootstrap.min.js"></script>
+    <script src="./public/js\nifty.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
-
-<script src="./public/js/lib/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="./public/js/lib/match-height/jquery.matchHeight.min.js"></script>
-<script src="./public/js/lib/hide-show-password/bootstrap-show-password.min.js"></script>
-<script src="./public/js/lib/hide-show-password/bootstrap-show-password-init.js"></script>
-<script>
-    $(function() {
-        $('.page-center').matchHeight({
-            target: $('html')
-        });
-
-        $(window).resize(function() {
-            setTimeout(function() {
-                $('.page-center').matchHeight({
-                    remove: true
-                });
-                $('.page-center').matchHeight({
-                    target: $('html')
-                });
-            }, 100);
-        });
-    });
-</script>
-<script type="text/javascript" src="script.js"></script>
 
 </html>

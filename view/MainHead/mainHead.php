@@ -1,20 +1,30 @@
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>MPFN - SICAFIT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<link rel="stylesheet" href="../../public/css/lib/lobipanel/lobipanel.min.css">
-	<link rel="stylesheet" href="../../public/css/separate/vendor/lobipanel.min.css">
-	<link rel="stylesheet" href="../../public/css/lib/jqueryui/jquery-ui.min.css">
-	<link rel="stylesheet" href="../../public/css/lib/font-awesome/font-awesome.min.css">
-	<link rel="stylesheet" href="../../public/css/lib/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="../../public/css/main.css">
-	<link rel="stylesheet" href="../../public/css/lib/datatables-net/datatables.min.css">
-	<link rel="stylesheet" href="../../public/css/separate/vendor/datatables-net.min.css">
-	<link rel="stylesheet" href="../../public/css/lib/ladda-button/ladda-themeless.min.css">
-	<script src="../../public/js/lib/swealertmain/sweetalert2@11.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-	<link rel="icon" href="../../public/icon/LogoIcon.png">
+    <title>MPFN - SICAFIT</title>
 
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <link href='../../public/estilos_fonts.css' rel='stylesheet' type='text/css'>
+    <link href="../../public/css\bootstrap.min.css" rel="stylesheet">
+    <link href="../../public/css\nifty.min.css" rel="stylesheet">
+    <link href="../../public/css\demo\nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="../../public/plugins\pace\pace.min.css" rel="stylesheet">
+    <script src="../../public/plugins\pace\pace.min.js"></script>
+    <link href="../../public/plugins\font-awesome\css\font-awesome.min.css" rel="stylesheet">
+    <link href="../../public/plugins\themify-icons\themify-icons.min.css" rel="stylesheet">
+    <link href="../../public/plugins\datatables\media\css\dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../../public/plugins\datatables\extensions\Responsive\css\responsive.dataTables.min.css" rel="stylesheet">
+    <script src="../../public/js/swealertmain/sweetalert2@11.js"></script>
+    <link rel="icon" href="../../public/icon/LogoIcon.png">
+    <style>
+        .swal2-container {
+            z-index: 99999 !important;
+        }
+    </style>
+    <link href="../../public/plugins\bootstrap-select\bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../public/plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.css" rel="stylesheet">
+    
 </head>
