@@ -6,6 +6,10 @@ $usuario = new Usuario();
 
 switch ($_GET["op"]) {
 
+    case 'listarLibreta':
+        $datos = $usuario->get_usuario_libreta();
+        echo json_encode($datos, JSON_UNESCAPED_UNICODE);
+        break;
         /**TODO: Listar cargo en tabla */
     case 'listar':
         $datos = $usuario->get_usuario();
@@ -129,6 +133,8 @@ switch ($_GET["op"]) {
                 $output["usu_cel"] = $row["usu_cel"];
                 $output["usu_photo"] = $row["usu_photo"];
                 $output["depen_id"] = $row["depen_id"];
+                $output["cargo_name"] = $row["cargo_name"];
+                $output["depen_name"] = $row["depen_name"];
                 $output["cargo_id"] = $row["cargo_id"];
                 $output["usu_password"] = $row["usu_password"];
                 $output["usu_idx"] = $row["usu_idx"];
@@ -136,7 +142,7 @@ switch ($_GET["op"]) {
             echo json_encode($output);
         }
         break;
-        
+
 
         /**TODO: Desactivar Cargo */
     case 'desactive':
@@ -174,5 +180,9 @@ switch ($_GET["op"]) {
             }
             echo $html;
         }
+        break;
+
+    case 'password':
+        $usuario->update_user_pass($_POST["usu_id"], $_POST["usu_pass"]);
         break;
 }

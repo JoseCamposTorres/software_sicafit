@@ -7,4 +7,4 @@ RewriteEngine On
 </IfModule>
 
 # Configurar error 404
-ErrorDocument 404 /SICAFIT/view/Error/pages-404.html
+ErrorDocument 404 /SICAFIT/view/Error/pages-404.php

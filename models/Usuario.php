@@ -58,7 +58,8 @@ class Usuario extends Connect
     {
         $conectar = parent::Connection();
         parent::set_names();
-        $sql = "SELECT * FROM tm_usuarios WHERE usu_id = ?";
+        $sql = "SELECT * FROM tm_usuarios INNER JOIN tm_dependencias ON tm_usuarios.depen_id = tm_dependencias.depen_id
+        INNER JOIN tm_cargos ON tm_usuarios.cargo_id = tm_cargos.cargo_id  WHERE tm_usuarios.usu_id = ?";
         $sql = $conectar->prepare(($sql));
         $sql->bindValue(1, $usu_id);
         $sql->execute();
@@ -188,5 +189,31 @@ class Usuario extends Connect
         $sql = $conectar->prepare(($sql));
         $sql->execute();
         return  $resultado = $sql->fetchAll();
+    }
+
+    /**TODO: Funcion  cAMBIAR CONTRASEÑA*/
+    public function update_user_pass($usu_id, $usu_pass)
+    {
+        $connect = parent::connection();
+        parent::set_names();
+
+        $hashed_password = password_hash($usu_pass, PASSWORD_BCRYPT);
+        $sql = "UPDATE tm_usuarios SET usu_password = ?,usu_date_edit = now() WHERE usu_id = ?";
+        $sql = $connect->prepare(($sql));
+        $sql->bindValue(1, $hashed_password);
+        $sql->bindValue(2, $usu_id);
+        $sql->execute();
+        return  $resultado = $sql->fetchAll();
+    }
+
+    /** TODO: Obtener lista de usuarios */
+    public function get_usuario_libreta()
+    {
+        $conectar = parent::Connection();
+        parent::set_names();
+        $sql = "SELECT usu_photo, usu_name, usu_lastname, usu_email, usu_anexo, usu_cel FROM tm_usuarios";
+        $sql = $conectar->prepare($sql);
+        $sql->execute();
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 }

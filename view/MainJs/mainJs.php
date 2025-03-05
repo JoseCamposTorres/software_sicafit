@@ -9,7 +9,7 @@
 <script src="../../public/plugins\datatables\extensions\Responsive\js\dataTables.responsive.min.js"></script>
 <script src="../../public/plugins\bootstrap-select\bootstrap-select.min.js"></script>
 <script src="../../public/plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.js"></script>
-
+<script src="../mainAside/libreta.js"></script>
 <script>
     //url Desarrollo 
      var urlBase = "http://localhost/SICAFIT/";

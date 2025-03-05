@@ -27,13 +27,13 @@
      							</a>
      						</div>
      						<div id="profile-nav" class="collapse list-group bg-trans">
-     							<a href="#" class="list-group-item">
+     							<a href="../Perfil/" class="list-group-item">
      								<i class="demo-pli-male icon-lg icon-fw"></i> Ver Perfil
      							</a>
-     							<a href="#" class="list-group-item">
+     							<a href="../RecoverPassword/" class="list-group-item">
      								<i class="demo-pli-gear icon-lg icon-fw"></i> Configuración
      							</a>
-     							<a href="#" class="list-group-item">
+     							<a href="../Help/" class="list-group-item">
      								<i class="demo-pli-information icon-lg icon-fw"></i> Ayuda
      							</a>
      							<a href="../Logout/index.php" class="list-group-item">

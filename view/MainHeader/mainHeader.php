@@ -47,10 +47,10 @@
                           <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right panel-default">
                               <ul class="head-list">
                                   <li>
-                                      <a href="#"><i class="demo-pli-male icon-lg icon-fw"></i> Ver Perfil</a>
+                                      <a href="../Perfil/"><i class="demo-pli-male icon-lg icon-fw"></i> Ver Perfil</a>
                                   </li>
                                   <li>
-                                      <a href="#"><i class="demo-pli-gear icon-lg icon-fw"></i> Configuracion</a>
+                                      <a href="../RecoverPassword/"><i class="demo-pli-gear icon-lg icon-fw"></i> Configuracion</a>
                                   </li>
                                   <li>
                                       <a href="#" id="fullscreenToggle">

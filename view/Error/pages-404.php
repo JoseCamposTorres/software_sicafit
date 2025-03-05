@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Error 404 | Nifty - Admin Template</title>
+    <title>Error 404 | MPFN SICAFIT</title>
 
 
     <!--STYLESHEET-->
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ]-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
+    <link href='../../public/estilos_fonts.css' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="../../public/icon/LogoIcon.png">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
@@ -35,39 +35,9 @@
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
     <link href="../../public/plugins\pace\pace.min.css" rel="stylesheet">
     <script src="../../public/plugins\pace\pace.min.js"></script>
+   
 
-
-            
-    <!--=================================================
-
-    REQUIRED
-    You must include this in your project.
-
-
-    RECOMMENDED
-    This category must be included but you may modify which plugins or components which should be included in your project.
-
-
-    OPTIONAL
-    Optional plugins. You may choose whether to include it in your project or not.
-
-
-    DEMONSTRATION
-    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
-
-
-    SAMPLE
-    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
-
-
-    Detailed information and more samples can be found in the document.
-
-    =================================================-->
-        
 </head>
-
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
     <div id="container" class="cls-container">
@@ -78,7 +48,7 @@
 		    <div class="cls-brand">
 		        <a class="box-inline" href="index.html">
 		            <!--<img alt="Nifty Admin" src="img/logo.png" class="brand-icon">-->
-		            <span class="brand-title">Nifty<span class="text-thin">Admin</span></span>
+		            <span class="brand-title">SISTEMA <span class="text-thin"> SICAFIT</span></span>
 		        </a>
 		    </div>
 		</div>
@@ -87,21 +57,20 @@
 		<!--===================================================-->
 		<div class="cls-content">
 		    <h1 class="error-code text-info">404</h1>
-		    <p class="h4 text-uppercase text-bold">Page Not Found!</p>
+		    <p class="h4 text-uppercase text-bold">Oops! La página que buscas no existe.</p>
 		    <div class="pad-btm">
-		        Sorry, but the page you are looking for has not been found on our server.
+            Lo sentimos, pero la página que intentas acceder no está disponible.
 		    </div>
 		    <div class="row mar-ver">
-		        <form class="col-xs-12 col-sm-10 col-sm-offset-1" method="post" action="pages-search-results.html">
-		            <input type="text" placeholder="Search.." class="form-control error-search">
-		        </form>
+                <i class="fa fa-cloud-download"></i>
 		    </div>
 		    <hr class="new-section-sm bord-no">
-		    <div class="pad-top"><a class="btn btn-primary" href="index.html">Return Home</a></div>
+		    <div class="pad-top"><a class="btn btn-primary" href="../Home/">Regresar al Inicio</a></div>
 		</div>
 		
 		
     </div>
+    <?php require_once("../MainJs/mainJs.php") ?>
     <!--===================================================-->
     <!-- END OF CONTAINER -->
 
