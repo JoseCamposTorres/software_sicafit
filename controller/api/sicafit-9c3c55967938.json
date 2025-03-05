@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sicafit",
+  "private_key_id": "9c3c55967938b09ec2427e25a5658298610efbcc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIJkxMlhLp9MZ6\n3I2ZvrIk0N17kJvysRiF5vVZvN+8VLPtmZnZ+zwzHPxcY4JnEXlyO70Yxn1pb5bY\ngWJiwEz9BPmdap1rKHzdn2SsBWA31KT0L804bVqtUsyoiAbdsB5B6ua537iKsdqa\n1RPLZOEYdzWKM4ObQK+ePhVpIVgeklq2banlXX5HIs2gH9WIqhLV9FITny5ZFkhv\nuZfTswFOLsWlJiMuATo1dou0YMMws/fVSez/d6/Kq8K8LZewmSHo4VZEqgZGBOJG\nuxA1Ucd0H7rgkV48hNl0/P14cAED7IokJepgChd/gcKFi2TTxC7mEWW3f3qUYPiY\nuywuflFxAgMBAAECggEACzwUmnQuVrv01+zJRT72N5EyjHsAGPPqRCpkHWPX5HW1\n9ZVilKD4xqb27q3ugf/x6ujJ5xINtDlVfJzLH69LBwUUaJrVYCBpPWSzAUGqPmoJ\nEhSckrE3Nr1MA/4CMieOlD1F8xso6/6anmgtXLRyeuXGn2W/untLnFCgcaqzrEAJ\n/p6fhVw+xXU+mC42b2xYq9dvwW28LAP3oWp+XCBw8FapyKQd/U7S6Mlnc4pq7ATP\npe91rNLk6c0Nyg+gQmvgNiikZg5BDYjh4hVOGGE3nCpDE5j94T+Y0Flj+7QWMfff\nM60ksQ4uBolno8vIm9l1NyDcTMSs5TWqdiev/QiowQKBgQDyqwhOo2SI56qqwR1o\nhcB67UFfSUS4Ekt+OEXsYcQcGW26oAwRrUJcoGdAp4OMtNW3RYv+UIrARnqGZpie\ngiLKw2gKC+XgvCsmw4x8qGOIfi3vqrxfMUV3kjk066AHnHenaL8kZU+/sxMK1WbJ\nlPROxfOjfHQgMhDHuWn9Lz5esQKBgQDTJUVYDsZcmZbCyRofM0RDPDrhpVhc62x9\nViDIJZxxqI/r3slPCezETf/iV8PhW6CeXEOOEFwcZsMrHIl7VDbSUX7PCqXXYKGy\nS00URUC+4lQ6vy0e3VrFOZg1v2diE6cH5gF0gY8QvIXg9Dqn26VbFuLMmE4v8BF4\nPIA4h09OwQKBgAptTu4SFz/KtIqhwaG8HYkqqKRvgYRnRNcnk9mUWdjbPtvGBL69\nsxxHyCf/CqgBHS3Cz0EeNNgOLzWXMvecn+IWg2HrIPWHIFOKE39HvP8gbNjffTiZ\n5WI95jdf6IBrOLj4xz3JHKQgDbFpegEvZU/9MXrU3iiD/jSWwvceEJABAoGAU+Aw\nZcSow8w3eXVNrSs+aL8aXNzD91WGKVv3dcqLFRNy6K39pio5JdoeVhmrNHCjo4Tf\nSSXykU25Jf0WGCniBTZee3ytWJuIYD1Nh0njaHCcKSIcmHAySLqSXneEaA+KgLa7\nyT5WSL27KRub2WaFj2POAJxYIu7o4ayW+t21gYECgYEAnCLuXYkyoamTDJeubmSD\n22kyiXXOvOgBm67VNixdSfTemreobVM6+86UNKs06XG+p6IS05jq1slyRR7b3MT1\n77OYrfVSv3XYshgK6DgpfOdK+fyq16P5jSO9tc9h0nuVIFhYeFtlTymoXUdZnUWy\nhbx1ds5FXrCqjqWHC4fMzNo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sicafit@sicafit.iam.gserviceaccount.com",
+  "client_id": "110922728544227576136",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sicafit%40sicafit.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

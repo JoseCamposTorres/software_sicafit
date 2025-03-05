@@ -26,5 +26,5 @@
     </style>
     <link href="../../public/plugins\bootstrap-select\bootstrap-select.min.css" rel="stylesheet">
     <link href="../../public/plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.css" rel="stylesheet">
-    
+    <script src="../../public/chart.js"></script>
 </head>

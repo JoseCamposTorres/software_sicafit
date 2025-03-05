@@ -10,5 +10,10 @@
 <script src="../../public/plugins\bootstrap-select\bootstrap-select.min.js"></script>
 <script src="../../public/plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.js"></script>
 
-
+<script>
+    //url Desarrollo 
+     var urlBase = "http://localhost/SICAFIT/";
+    //Url Produccion
+    //var urlBase = "http://10.7.100.30/UDAVIT/";
+</script>
 <!--=================================================-->

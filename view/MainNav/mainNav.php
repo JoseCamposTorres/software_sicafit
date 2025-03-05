@@ -106,6 +106,20 @@
      							</a>
      						</li>
 
+     						<li>
+     							<a href="../Graficos/">
+     								<i class="fa fa-pie-chart"></i>
+     								<span class="menu-title">Gráficos Estadísticos</span>
+     							</a>
+     						</li>
+
+     						<li>
+     							<a href="../Detenidos/">
+     								<i class="fa fa-balance-scale"></i>
+     								<span class="menu-title">Detenidos</span>
+     							</a>
+     						</li>
+
      						<li class="list-divider"></li>
 
      						<!--Category name-->
@@ -152,13 +166,23 @@
      								<span class="menu-title">Cargos</span>
      							</a>
      						</li>
+
+     						<!--Category name-->
+     						<li class="list-header">Copia de Seguridad</li>
+
+     						<li>
+     							<a href="../Backup/">
+     								<i class="fa fa-cloud-download"></i>
+     								<span class="menu-title">Backup BD</span>
+     							</a>
+     						</li>
+
      					</ul>
 
 
      					<!--Widget-->
      					<!--================================-->
      					<div class="mainnav-widget">
-
      						<div class="show-small">
      							<a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
      								<i class="demo-pli-monitor-2"></i>
