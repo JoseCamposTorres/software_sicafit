@@ -133,7 +133,7 @@ if (is_array($datosDetenido) && count($datosDetenido) > 0) {
     $pdf->Ln(6);
 
     // Configuración de ancho de columnas
-    $colWidths = [15, 80, 25, 50];
+    $colWidths = [15, 80, 25, 40, 30]; // Se añade una nueva columna para el tipo de documento
     $tableWidth = array_sum($colWidths);
     $xStart = ($pageWidth - $tableWidth) / 2; // Centrando la tabla
 
@@ -145,7 +145,8 @@ if (is_array($datosDetenido) && count($datosDetenido) > 0) {
     $pdf->Cell($colWidths[0], 8, 'N°', 1, 0, 'C', true);
     $pdf->Cell($colWidths[1], 8, 'Nombres y Apellidos', 1, 0, 'C', true);
     $pdf->Cell($colWidths[2], 8, 'Edad', 1, 0, 'C', true);
-    $pdf->Cell($colWidths[3], 8, 'DNI', 1, 1, 'C', true);
+    $pdf->Cell($colWidths[3], 8, utf8_decode('Número'), 1, 0, 'C', true);
+    $pdf->Cell($colWidths[4], 8, utf8_decode('Tipo'), 1, 1, 'C', true); // Nueva columna para el tipo de documento
 
     // Restaurar color de texto a negro para el contenido
     $pdf->SetTextColor(0, 0, 0);
@@ -159,6 +160,20 @@ if (is_array($datosDetenido) && count($datosDetenido) > 0) {
         $dni = (!empty($row["detenido_dni"]) && strtoupper(trim($row["detenido_dni"])) !== "NULL" && trim($row["detenido_dni"]) !== "[NULL]") ? $row["detenido_dni"] : "N/A";
         $edad = (!empty($row["detenido_age"]) && strtoupper(trim($row["detenido_age"])) !== "NULL" && trim($row["detenido_age"]) !== "[NULL]") ? $row["detenido_age"] : "N/A";
 
+        // Determinar el tipo de documento
+        $length = strlen($row["detenido_dni"]);
+        if ($length === 8) {
+            $tipoDocumento = "DNI";
+        } elseif ($length === 10) {
+            $tipoDocumento = "Cédula";
+        } elseif ($length === 20) {
+            $tipoDocumento = "Pasaporte";
+        } elseif ($length === 12) {
+            $tipoDocumento = "Carnet";
+        } else {
+            $tipoDocumento = "Desconocido";
+        }
+
         // Concatenar nombre y apellido
         $nombreCompleto = trim($nombre . ' ' . $apellido);
 
@@ -167,7 +182,8 @@ if (is_array($datosDetenido) && count($datosDetenido) > 0) {
         $pdf->Cell($colWidths[0], 8, $contador, 1, 0, 'C');
         $pdf->Cell($colWidths[1], 8, utf8_decode($nombreCompleto), 1, 0, 'L');
         $pdf->Cell($colWidths[2], 8, $edad, 1, 0, 'C');
-        $pdf->Cell($colWidths[3], 8, $dni, 1, 1, 'C');
+        $pdf->Cell($colWidths[3], 8, $dni, 1, 0, 'C');
+        $pdf->Cell($colWidths[4], 8, $tipoDocumento, 1, 1, 'C'); // Imprimir tipo de documento
 
         $contador++;
     }

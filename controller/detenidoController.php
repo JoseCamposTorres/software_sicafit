@@ -15,9 +15,22 @@ switch ($_GET["op"]) {
             $sub_array = array();
             $sub_array[] = $contador++;
             $sub_array[] = $row["caso_date"];
+            // Determinar el tipo de documento directamente
+            $length = strlen($row["detenido_dni"]);
+            if ($length === 8) {
+                $sub_array[] = "DNI";
+            } elseif ($length === 10) {
+                $sub_array[] = "Cedula";
+            } elseif ($length === 20) {
+                $sub_array[] = "Pasaporte";
+            } elseif ($length === 12) {
+                $sub_array[] = "Carnet";
+            } else {
+                $sub_array[] = "Desconocido";
+            }
             $sub_array[] = $row["detenido_dni"];
             $sub_array[] = $row["detenido_name"] . ' ' . $row["detenido_lastname"];
-            $sub_array[] = $row["detenido_age"] ;
+            $sub_array[] = $row["detenido_age"];
 
             if ($row["detenido_status"] == "1") {
                 $sub_array[] = '<span class="label label-pill label-success">Activo</span>';
@@ -26,10 +39,10 @@ switch ($_GET["op"]) {
             }
 
             if ($row["detenido_status"] == "1") {
-             
+
                 $sub_array[] = '<button type="button" onClick="desactive(' . $row["detenido_id"] . ');" id="' . $row["detenido_id"] . '" class="btn btn-danger btn-icon"><i class="demo-psi-recycling icon-lg"></i></button>';
             } else {
-            
+
                 $sub_array[] = '<button type="button" onClick="active(' . $row["detenido_id"] . ');" id="' . $row["detenido_id"] . '" class="btn btn-success btn-icon"><i class="fa fa-check"></i></button>';
             }
 

@@ -38,6 +38,7 @@ if (isset($_SESSION["usu_id"])) {
                                                         <tr>
                                                             <th style="width: 3%;">N°</th>
                                                             <th style="width: 5%;">Fecha Proceso</th>
+                                                            <th style="width: 5%;">Tipo de Documento</th>
                                                             <th style="width: 5%;">Dni</th>
                                                             <th style="width: 10%;">Nombres y Apellidos</th>
                                                             <th style="width: 5%;">Edad</th>

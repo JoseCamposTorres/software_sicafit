@@ -5,7 +5,6 @@ if (isset($_SESSION["usu_id"])) {
     <!DOCTYPE html>
     <html lang="en">
     <?php require_once("../MainHead/mainHead.php") ?>
-
     <body>
         <div id="container" class="effect aside-float aside-bright mainnav-sm">
             <?php require_once("../MainHeader/mainHeader.php") ?>
@@ -57,9 +56,9 @@ if (isset($_SESSION["usu_id"])) {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="form-label semibold" for="caso_situacional">Estado Situacional</label>
-                                                            <div class="form-control-wrapper has-success" style="border: 1px solid green;">
-                                                                <select class="selectpicker" data-width="100%" name="caso_situacional" id="caso_situacional">
-                                                                    <option value="">Seleccionar</option>
+                                                            <div class="form-control-wrapper has-success">
+                                                                <select id="caso_situacional" data-width="100%" name="caso_situacional" >
+                                                                    <option value="" selected hidden>Seleccionar</option>
                                                                     <option value="Diligencia Preliminares">Diligencia Preliminares</option>
                                                                     <option value="Detención Preliminar">Detención Preliminar</option>
                                                                     <option value="Prisión Preventiva">Prisión Preventiva</option>
@@ -75,8 +74,8 @@ if (isset($_SESSION["usu_id"])) {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="form-label semibold" for="usu_id">Fiscal</label>
-                                                            <div class="form-control-wrapper has-success" style="border: 1px solid green;">
-                                                                <select class="selectpicker" data-width="100%" name="usu_id" id="usu_id">
+                                                            <div class="form-control-wrapper has-success" >
+                                                                <select id="usu_id" data-width="100%" name="usu_id" >
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -86,8 +85,8 @@ if (isset($_SESSION["usu_id"])) {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="form-label semibold" for="deli_delito">Delitos</label>
-                                                            <div class="form-control-wrapper has-success" style="border: 1px solid green;">
-                                                                <select class="selectpicker" data-width="100%" name="deli_delito" id="deli_delito">
+                                                            <div class="form-control-wrapper has-success" >
+                                                                <select data-width="100%" name="deli_delito" id="deli_delito">
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -133,7 +132,6 @@ if (isset($_SESSION["usu_id"])) {
                     </div>
                     <!--===================================================-->
                     <!--End page content-->
-
                 </div>
                 <?php require_once("../MainAside/mainAside.php") ?>
                 <?php require_once("../MainNav/mainNav.php") ?>
@@ -144,6 +142,8 @@ if (isset($_SESSION["usu_id"])) {
             </button>
         </div>
         <?php require_once("modalMantenimiento.php") ?>
+
+
         <?php require_once("../MainJs/mainJs.php") ?>
         <script src="./script.js"></script>
         <script src="./validaters.js"></script>

@@ -1,54 +1,116 @@
 $(document).ready(function () {
-  let rowIndex = 1;
+  let rowCount = 1;
+
+  // Evento delegado para cambiar el label y restricciones del input según el tipo de documento seleccionado
+  $("#detenidosContainer").on(
+    "change",
+    "#tipo_documento, .tipo-documento",
+    function () {
+      let select = $(this);
+      let row = select.closest(".row"); // Encuentra la fila en la que está el select
+      let label = row.find("label[for^='detenido_dni_']");
+      let input = row.find(".dni-input");
+
+      switch (select.val()) {
+        case "DNI":
+          label.text("DNI");
+          input.attr("placeholder", "Ingrese su DNI");
+          input.attr("maxlength", "8");
+          input.attr("onkeypress", "return OnlyNumbers(event);");
+          break;
+
+        case "Cedula":
+          label.text("Cédula de Identidad");
+          input.attr("placeholder", "Ingrese su cédula");
+          input.attr("maxlength", "10");
+          input.attr("onkeypress", "return OnlyNumbers10(event);");
+          break;
+
+        case "Pasaporte":
+          label.text("Pasaporte");
+          input.attr("placeholder", "Ingrese su pasaporte");
+          input.attr("maxlength", "20");
+          input.attr("onkeypress", "return Alphanumeric20(event);");
+          break;
+
+        case "Carnet":
+          label.text("Carnet de Extranjería");
+          input.attr("placeholder", "Ingrese su carnet");
+          input.attr("maxlength", "12");
+          input.attr("onkeypress", "return Alpha12(event);");
+          break;
+      }
+    }
+  );
 
   // Agregar una nueva fila al hacer clic en el botón
   $("#addRow").click(function () {
-    rowIndex++;
+    rowCount++;
+    let newRowId = `row_${rowCount}`;
+
     let newRow = `
-        <div class="row detenido-row" id="row_${rowIndex}">
-            <div class="col-lg-3">
+        <div class="row detenido-row" id="${newRowId}">
+            <div class="col-lg-2">
                 <div class="form-group has-success">
-                    <label class="form-label semibold">DNI</label>
+                    <label class="form-label semibold" for="tipo_documento_${rowCount}">Tipo de Documento</label>
+                    <div class="form-control-wrapper">
+                        <select class="form-control tipo-documento" id="tipo_documento_${rowCount}" name="tipo_documento[]" required>
+                            <option value="DNI">DNI</option>
+                            <option value="Cedula">Cédula de Identidad</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="Carnet">Carnet de Extranjería</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group has-success">
+                    <label class="form-label semibold" for="detenido_dni_${rowCount}">DNI</label>
                     <div class="form-control-wrapper">
                         <div class="input-group mar-btm">
-                            <input type="text" class="form-control dni-input" id="detenido_dni_${rowIndex}" name="detenido_dni[]" onkeypress="return OnlyNumbers(event);" placeholder="Ingrese nombre del DNI" required autocomplete="off">
-                            <span class="input-group-addon"><i class="fa fa-search buscar-dni" style="cursor: pointer;"></i></span>
+                            <input type="text" class="form-control dni-input" id="detenido_dni_${rowCount}" name="detenido_dni[]" 
+                                onkeypress="return OnlyNumbers(event);" placeholder="Ingrese número de DNI" required autocomplete="off">
+                            <span class="input-group-addon">
+                                <i class="fa fa-search buscar-dni" style="cursor: pointer;"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group has-success">
                     <label class="form-label semibold">Nombres</label>
                     <div class="form-control-wrapper has-error">
-                        <input type="text" class="form-control nombre-input" name="detenido_name[]" placeholder="Ingrese su nombre" required autocomplete="off" onkeypress="return OnlyLetters(event);">
+                        <input type="text" class="form-control nombre-input" name="detenido_name[]" 
+                            placeholder="Ingrese su nombre" required autocomplete="off" onkeypress="return OnlyLetters(event);">
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group has-success">
                     <label class="form-label semibold">Apellidos</label>
                     <div class="form-control-wrapper has-error">
-                        <input type="text" class="form-control apellido-input" name="detenido_lastname[]" placeholder="Ingrese su apellido" required autocomplete="off" onkeypress="return OnlyLetters(event);">
+                        <input type="text" class="form-control apellido-input" name="detenido_lastname[]" 
+                            placeholder="Ingrese su apellido" required autocomplete="off" onkeypress="return OnlyLetters(event);">
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-1">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label class="form-label semibold">Edad</label>
                     <div class="form-control-wrapper has-success">
-                        <input type="text" class="form-control edad-input" name="detenido_age[]" placeholder="Ingrese su edad" autocomplete="off" onkeypress="return OnlyNumbers2(event);">
+                        <input type="text" class="form-control edad-input" name="detenido_age[]" 
+                            placeholder="Ingrese su edad" autocomplete="off" onkeypress="return OnlyNumbers2(event);">
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-1">
-                <button type="button" class="btn btn-danger btn-circle removeRow" data-row="row_${rowIndex}"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-danger btn-circle removeRow" data-row="${newRowId}">
+                    <i class="fa fa-minus"></i>
+                </button>
             </div>
-        </div>`;
+        </div>
+    `;
 
     $("#detenidosContainer").append(newRow);
   });
@@ -307,9 +369,61 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+$(document).ready(function () {
+  $("#caso_situacional").select2({
+    placeholder: "Seleccionar",
+    allowClear: true,
+  });
+});
+
+$(document).ready(function () {
+  $("#usu_id").select2({
+    placeholder: "Seleccionar",
+    allowClear: true,
+  });
+});
+
+$(document).ready(function () {
+  $("#deli_delito").select2({
+    placeholder: "Seleccionar",
+    allowClear: true,
+  });
+});
+
+// Función para determinar el tipo de documento según la longitud del DNI
+function getTipoDocumento(dni) {
+  let length = dni.length;
+  if (length === 8) return "DNI";
+  if (length === 10) return "Cedula";
+  if (length === 20) return "Pasaporte";
+  if (length === 12) return "Carnet";
+  return "DNI"; // Valor por defecto
+}
+
+// Función para obtener la longitud máxima permitida en el input
+function getMaxLength(tipoDocumento) {
+  let maxLengthMap = {
+    DNI: 8,
+    Cedula: 10,
+    Pasaporte: 20,
+    Carnet: 12,
+  };
+  return maxLengthMap[tipoDocumento] || 8;
+}
+
+// Función para obtener la validación correcta según el tipo de documento
+function getValidationFunction(tipoDocumento) {
+  let validationMap = {
+    DNI: OnlyNumbers,
+    Cedula: OnlyNumbers10,
+    Pasaporte: Alphanumeric20,
+    Carnet: Alpha12,
+  };
+  return validationMap[tipoDocumento] || OnlyNumbers;
+}
 
 // Obtener la fecha actual en formato YYYY-MM-DD
-const today = new Date().toISOString().split('T')[0];
+const today = new Date().toISOString().split("T")[0];
 
 // Asignar la fecha actual a ambos inputs
 document.getElementById("fecha_proceso_desde").value = today;

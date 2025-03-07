@@ -34,6 +34,7 @@ function generarBackup() {
           title: "Copia de seguridad generada",
           text: "La base de datos ha sido guardada exitosamente.",
         });
+        $('#backup_data').DataTable().ajax.reload();
       } else {
         // Si hay algún error en la petición, mostrar mensaje de error
         Swal.fire({

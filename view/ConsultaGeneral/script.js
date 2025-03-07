@@ -63,62 +63,6 @@ function init() {
 
 /**Inicializar tablas modal */
 $(document).ready(function () {
-  /** TODO: rol si es 3 entonces es fiscal */
-  // if (rol_id == 3) {
-  /* TODO: rol si es 1 entonces es usuario */
-  // tabla = $("#ticket_data")
-  //   .dataTable({
-  //     aProcessing: true,
-  //     aServerSide: true,
-  //     dom: "Bfrtip",
-  //     searching: true,
-  //     lengthChange: false,
-  //     colReorder: true,
-  //     buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
-  //     ajax: {
-  //       url: "../../controller/ticket.php?op=listar_x_usu",
-  //       type: "post",
-  //       dataType: "json",
-  //       data: { usu_id: usu_id },
-  //       error: function (e) {
-  //         console.log(e.responseText);
-  //       },
-  //     },
-  //     ordering: true,
-  //     bDestroy: true,
-  //     responsive: true,
-  //     bInfo: true,
-  //     iDisplayLength: 10,
-  //     autoWidth: false,
-  //     language: {
-  //       sProcessing: "Procesando...",
-  //       sLengthMenu: "Mostrar _MENU_ registros",
-  //       sZeroRecords: "No se encontraron resultados",
-  //       sEmptyTable: "Ningún dato disponible en esta tabla",
-  //       sInfo: "Mostrando un total de _TOTAL_ registros",
-  //       sInfoEmpty: "Mostrando un total de 0 registros",
-  //       sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
-  //       sInfoPostFix: "",
-  //       sSearch: "Buscar:",
-  //       sUrl: "",
-  //       sInfoThousands: ",",
-  //       sLoadingRecords: "Cargando...",
-  //       oPaginate: {
-  //         sFirst: "Primero",
-  //         sLast: "Último",
-  //         sNext: "Siguiente",
-  //         sPrevious: "Anterior",
-  //       },
-  //       oAria: {
-  //         sSortAscending:
-  //           ": Activar para ordenar la columna de manera ascendente",
-  //         sSortDescending:
-  //           ": Activar para ordenar la columna de manera descendente",
-  //       },
-  //     },
-  //   })
-  //   .DataTable();
-  // } else {
   var fecha_proceso_desde = $("#fecha_proceso_desde").val();
   var fecha_proceso_hasta = $("#fecha_proceso_hasta").val();
   var caso_situacional = $("#caso_situacional").val();
@@ -558,6 +502,7 @@ function edit(caso_id) {
     function (data) {
       data = JSON.parse(data);
       console.log(data.deli_espdelito);
+
       // Llenar datos del caso
       $("#caso_id").val(data.caso_id);
       $("#caso_date").val(data.caso_date);
@@ -586,38 +531,74 @@ function edit(caso_id) {
       // Agregar los detenidos dinámicamente
       if (data.detenidos && data.detenidos.length > 0) {
         data.detenidos.forEach((detenido, index) => {
+          let tipoDocumento = getTipoDocumento(detenido.dni);
+
           let detenidoRow = `
               <div class="row detenido-row">
-                  <div class="col-lg-3">
+                  <div class="col-lg-2">
                       <div class="form-group has-success">
-                          <label class="form-label semibold" for="detenido_dni_${index}">DNI</label>
+                          <label class="form-label semibold" for="tipo_documento_${index}">Tipo de Documento</label>
+                          <div class="form-control-wrapper">
+                              <select class="form-control tipo-documento" id="tipo_documento_${index}" name="tipo_documento[]" required>
+                                  <option value="DNI" ${
+                                    tipoDocumento === "DNI" ? "selected" : ""
+                                  }>DNI</option>
+                                  <option value="Cedula" ${
+                                    tipoDocumento === "Cedula" ? "selected" : ""
+                                  }>Cédula de Identidad</option>
+                                  <option value="Pasaporte" ${
+                                    tipoDocumento === "Pasaporte"
+                                      ? "selected"
+                                      : ""
+                                  }>Pasaporte</option>
+                                  <option value="Carnet" ${
+                                    tipoDocumento === "Carnet" ? "selected" : ""
+                                  }>Carnet de Extranjería</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-2">
+                      <div class="form-group has-success">
+                          <label class="form-label semibold" for="detenido_dni_${index}">${tipoDocumento}</label>
                           <div class="form-control-wrapper">
                               <div class="input-group mar-btm">
-                                  <input type="text" class="form-control dni-input" id="detenido_dni_${index}" name="detenido_dni[]" value="${detenido.dni}" required autocomplete="off">
+                                  <input type="text" class="form-control dni-input" id="detenido_dni_${index}" name="detenido_dni[]" value="${
+            detenido.dni
+          }" required autocomplete="off" maxlength="${getMaxLength(
+            tipoDocumento
+          )}" placeholder="Ingrese su ${tipoDocumento}" onkeypress="return getValidationFunction(tipoDocumento)(event);">
                                   <span class="input-group-addon"><i class="fa fa-search buscar-dni" style="cursor: pointer;"></i></span>
                               </div>
                           </div>
                       </div>
                   </div>
-  
-                  <div class="col-sm-4">
+
+                  <div class="col-sm-3">
                       <div class="form-group has-success">
                           <label class="form-label semibold">Nombres</label>
-                          <input type="text" class="form-control nombre-input" name="detenido_name[]" value="${detenido.nombre}" required autocomplete="off">
+                          <input type="text" class="form-control nombre-input" name="detenido_name[]" value="${
+                            detenido.nombre
+                          }" required autocomplete="off">
                       </div>
                   </div>
-  
-                  <div class="col-sm-4">
+
+                  <div class="col-sm-3">
                       <div class="form-group has-success">
                           <label class="form-label semibold">Apellidos</label>
-                          <input type="text" class="form-control apellido-input" name="detenido_lastname[]" value="${detenido.apellido}" required autocomplete="off">
+                          <input type="text" class="form-control apellido-input" name="detenido_lastname[]" value="${
+                            detenido.apellido
+                          }" required autocomplete="off">
                       </div>
                   </div>
-  
-                  <div class="col-sm-1">
+
+                  <div class="col-sm-2">
                       <div class="form-group  has-success">
                           <label class="form-label semibold">Edad</label>
-                          <input type="text" class="form-control edad-input" name="detenido_age[]" value="${detenido.edad}" autocomplete="off">
+                          <input type="text" class="form-control edad-input" name="detenido_age[]" value="${
+                            detenido.edad
+                          }" autocomplete="off">
                       </div>
                   </div>
               </div>`;
@@ -644,16 +625,16 @@ function pdf(caso_id) {
   fetch("../../pdf/exportar_pdf_controller.php", {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: "caso_id=" + encodeURIComponent(caso_id)
+    body: "caso_id=" + encodeURIComponent(caso_id),
   })
-    .then(response => response.blob()) // Recibir el PDF
-    .then(blob => {
+    .then((response) => response.blob()) // Recibir el PDF
+    .then((blob) => {
       let url = URL.createObjectURL(blob);
       window.open(url, "_blank"); // Abrir en nueva pestaña sin mostrar caso_id en la URL
     })
-    .catch(error => console.error("Error al generar el PDF:", error));
+    .catch((error) => console.error("Error al generar el PDF:", error));
 }
 
 /**Inicializacion de la función */

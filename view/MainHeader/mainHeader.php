@@ -6,7 +6,7 @@
               <!--Brand logo & name-->
               <!--================================-->
               <div class="navbar-header">
-                  <a href="index.html" class="navbar-brand">
+                  <a href="../Home/" class="navbar-brand">
                       <img src="../../public/img/logo.png" alt="Nifty Logo" class="brand-icon">
                       <div class="brand-title">
                           <span class="brand-text">SICAFIT</span>

@@ -103,7 +103,7 @@ switch ($_GET["op"]) {
     case 'comboBoxFiscal':
         $datos = $consulta->get_comboBox_fiscal();
         $html = "";
-        $html .= "<option value='' selected>Seleccionar</option>";
+        $html .= "<option value='' selected hidden>Seleccionar</option>";
         if (is_array($datos) == true and count($datos) > 0) {
             foreach ($datos as $row) {
 

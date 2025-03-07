@@ -1,10 +1,18 @@
+<style>
+    .modal-dialog {
+        max-width: 90%;
+        /* Ajusta el ancho al 90% de la pantalla */
+        width: auto;
+    }
+</style>
+
 <div class="modal fade" id="modalmantenimiento" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
 
             <!--Modal header-->
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" ><i class="pci-cross pci-circle"></i></button>
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
                 <h4 class="modal-title" id="mdltitulo"></h4>
             </div>
             <form action="" method="post" id="caso_form">
@@ -146,8 +154,8 @@
                         </div>
 
                         <div id="detenidosContainer">
-                            <div class="row detenido-row">
-                                <div class="col-lg-3">
+                            <div class="row detenido-row" >
+                                <div class="col-lg-2">
                                     <div class="form-group has-success">
                                         <label class="form-label semibold" for="detenido_dni_1">DNI</label>
                                         <div class="form-control-wrapper">
@@ -159,7 +167,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="form-group has-success">
                                         <label class="form-label semibold">Nombres</label>
                                         <div class="form-control-wrapper has-error">
@@ -168,7 +176,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="form-group has-success">
                                         <label class="form-label semibold">Apellidos</label>
                                         <div class="form-control-wrapper has-error">
@@ -177,7 +185,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <div class="form-group">
                                         <label class="form-label semibold">Edad</label>
                                         <div class="form-control-wrapper has-success">

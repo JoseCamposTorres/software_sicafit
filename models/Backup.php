@@ -16,7 +16,7 @@ class Backup extends Connect
     {
         $conectar = parent::Connection();
         parent::set_names();
-        $sql = "SELECT * FROM tm_backup INNER JOIN tm_usuarios ON tm_backup.usu_id = tm_usuarios.usu_id";
+        $sql = "SELECT * FROM tm_backup INNER JOIN tm_usuarios ON tm_backup.usu_id = tm_usuarios.usu_id ORDER BY `tm_backup`.`back_date_new` DESC";
         $sql = $conectar->prepare(($sql));
         $sql->execute();
         return  $resultado = $sql->fetchAll();

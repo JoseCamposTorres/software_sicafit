@@ -5,6 +5,7 @@ if (isset($_SESSION["usu_id"])) {
     <!DOCTYPE html>
     <html lang="en">
     <?php require_once("../MainHead/mainHead.php") ?>
+    <?php require_once("../MainLoader/mainLoader.php") ?>
 
     <body>
         <div id="container" class="effect aside-float aside-bright mainnav-sm">
@@ -166,8 +167,21 @@ if (isset($_SESSION["usu_id"])) {
                                                     </div>
 
                                                     <div id="detenidosContainer">
-                                                        <div class="row detenido-row">
-                                                            <div class="col-lg-3">
+                                                        <div class="row detenido-row" id="row_1">
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group has-success">
+                                                                    <label class="form-label semibold" for="tipo_documento">Tipo de Documento</label>
+                                                                    <div class="form-control-wrapper">
+                                                                        <select class="form-control" id="tipo_documento" name="tipo_documento" required>
+                                                                            <option value="DNI">DNI</option>
+                                                                            <option value="Cedula">Cédula de Identidad</option>
+                                                                            <option value="Pasaporte">Pasaporte</option>
+                                                                            <option value="Carnet">Carnet de Extranjería</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
                                                                 <div class="form-group has-success">
                                                                     <label class="form-label semibold" for="detenido_dni_1">DNI</label>
                                                                     <div class="form-control-wrapper">
@@ -179,7 +193,7 @@ if (isset($_SESSION["usu_id"])) {
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-3">
                                                                 <div class="form-group has-success">
                                                                     <label class="form-label semibold">Nombres</label>
                                                                     <div class="form-control-wrapper has-error">
@@ -188,7 +202,7 @@ if (isset($_SESSION["usu_id"])) {
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-3">
                                                                 <div class="form-group has-success">
                                                                     <label class="form-label semibold">Apellidos</label>
                                                                     <div class="form-control-wrapper has-error">
@@ -197,7 +211,7 @@ if (isset($_SESSION["usu_id"])) {
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-1">
+                                                            <div class="col-sm-2">
                                                                 <div class="form-group">
                                                                     <label class="form-label semibold">Edad</label>
                                                                     <div class="form-control-wrapper has-success">

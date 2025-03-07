@@ -27,4 +27,5 @@
     <link href="../../public/plugins\bootstrap-select\bootstrap-select.min.css" rel="stylesheet">
     <link href="../../public/plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.css" rel="stylesheet">
     <script src="../../public/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 </head>

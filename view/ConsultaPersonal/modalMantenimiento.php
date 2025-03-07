@@ -4,7 +4,7 @@
 
             <!--Modal header-->
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" ><i class="pci-cross pci-circle"></i></button>
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
                 <h4 class="modal-title" id="mdltitulo"></h4>
             </div>
             <form action="" method="post" id="caso_form">
@@ -147,6 +147,18 @@
 
                         <div id="detenidosContainer">
                             <div class="row detenido-row">
+                                <div class="col-lg-2">
+                                    <div class="form-group has-success">
+                                        <label class="form-label semibold" for="detenido_dni_1">DNI</label>
+                                        <div class="form-control-wrapper">
+                                            <div class="input-group mar-btm">
+                                                <input type="text" class="form-control dni-input" id="detenido_dni_1" name="detenido_dni[]" onkeypress="return OnlyNumbers(event);" placeholder="Ingrese nombre del DNI" required autocomplete="off">
+                                                <span class="input-group-addon"><i class="fa fa-search buscar-dni" style="cursor: pointer;"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-3">
                                     <div class="form-group has-success">
                                         <label class="form-label semibold" for="detenido_dni_1">DNI</label>
