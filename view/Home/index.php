@@ -5,6 +5,11 @@ if (isset($_SESSION["usu_id"])) {
     <!DOCTYPE html>
     <html lang="en">
     <?php require_once("../MainHead/mainHead.php") ?>
+    <style>
+        .select2-container--default .select2-selection--single {
+            border: 1px solid red !important;
+        }
+    </style>
     <?php require_once("../MainLoader/mainLoader.php") ?>
 
     <body>
@@ -105,11 +110,11 @@ if (isset($_SESSION["usu_id"])) {
 
                                                     <div class="row">
                                                         <!-- Delito -->
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label semibold" for="deli_delito">Delito</label>
-                                                                <div class="form-control-wrapper has-success" style="border: 1px solid red;">
-                                                                    <select class="selectpicker" data-dropup-auto="false" required data-width="100%" name="deli_delito" id="deli_delito">
+                                                                <div class="form-control-wrapper has-success">
+                                                                    <select data-dropup-auto="false" required data-width="100%" name="deli_delito" id="deli_delito">
 
                                                                     </select>
                                                                 </div>
@@ -117,31 +122,31 @@ if (isset($_SESSION["usu_id"])) {
                                                         </div>
 
                                                         <!-- Sub_delito -->
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label semibold" for="deli_subdelito">Sub Delito</label>
-                                                                <div class="form-control-wrapper has-success" style="border: 1px solid red;">
-                                                                    <select class="selectpicker" data-dropup-auto="false" required data-width="100%" name="deli_subdelito" id="deli_subdelito">
-                                                                        <option value="0" selected>Seleccionar</option>
+                                                                <div class="form-control-wrapper has-success">
+                                                                    <select data-dropup-auto="false" required data-width="100%" name="deli_subdelito" id="deli_subdelito">
+
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <!-- Sub_delito -->
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label semibold" for="deli_espdelito">Delito Especifico</label>
-                                                                <div class="form-control-wrapper has-success" style="border: 1px solid red;">
+                                                                <div class="form-control-wrapper has-success">
                                                                     <select class="selectpicker" data-dropup-auto="false" required data-width="100%" name="deli_espdelito" id="deli_espdelito">
-                                                                        <option value="0" selected>Seleccionar</option>
+
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <!-- Detalle -->
-                                                        <div class="col-sm-3">
+                                                        <div class="col-sm-3" style="display: none;">
                                                             <div class="form-group">
                                                                 <label class="form-label semibold" for="deli_detalle">Detalle de delito</label>
                                                                 <div class="form-control-wrapper  has-success">

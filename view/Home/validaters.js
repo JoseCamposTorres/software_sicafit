@@ -478,3 +478,10 @@ document.addEventListener("DOMContentLoaded", function () {
     this.showPicker(); // Abre el selector de fecha (solo funciona en navegadores modernos)
   });
 });
+
+$(document).ready(function () {
+  $("#deli_delito, #deli_subdelito, #deli_espdelito").select2({
+    placeholder: "Seleccionar",
+    allowClear: true,
+  });
+});

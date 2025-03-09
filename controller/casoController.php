@@ -60,7 +60,7 @@ switch ($_GET["op"]) {
     case 'comboBoxDelito':
         $datos = $caso->get_comboBox_delito();
         $html = "";
-        $html .= "<option value='0' selected>Seleccionar</option>";
+        $html .= "<option value='' selected hidden>Seleccionar</option>";
         if (is_array($datos) == true and count($datos) > 0) {
             foreach ($datos as $row) {
 
@@ -74,7 +74,7 @@ switch ($_GET["op"]) {
     case 'comboBoxSubDelito':
         $datos = $caso->get_comboBox_subdelito($_POST["deli_delito"]);
         $html = "";
-        $html .= "<option value='0' selected>Seleccionar</option>";
+        $html .= "<option value='' selected hidden>Seleccionar</option>";
         if (is_array($datos) == true and count($datos) > 0) {
             foreach ($datos as $row) {
 
@@ -88,7 +88,7 @@ switch ($_GET["op"]) {
     case 'comboBoxEspDelito':
         $datos = $caso->get_comboBox_espdelito($_POST["deli_subdelito"]);
         $html = "";
-        $html .= "<option value='0' selected>Seleccionar</option>";
+        $html .= "<option value='' selected hidden>Seleccionar</option>";
         if (is_array($datos) == true and count($datos) > 0) {
             foreach ($datos as $row) {
 

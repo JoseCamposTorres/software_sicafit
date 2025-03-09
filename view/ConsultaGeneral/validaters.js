@@ -370,21 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 $(document).ready(function () {
-  $("#caso_situacional").select2({
-    placeholder: "Seleccionar",
-    allowClear: true,
-  });
-});
-
-$(document).ready(function () {
-  $("#usu_id").select2({
-    placeholder: "Seleccionar",
-    allowClear: true,
-  });
-});
-
-$(document).ready(function () {
-  $("#deli_delito").select2({
+  $("#caso_situacional, #usu_id, #deli_delito").select2({
     placeholder: "Seleccionar",
     allowClear: true,
   });
